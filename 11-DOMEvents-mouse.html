@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+    Mouse Over Me</div>
+
+<script>
+
+    var div= document.getElementsByTagName('div')[0]
+    div.addEventListener('mouseover', function () {
+        div.innerHTML = "Thank You"
+    });
+
+    div.addEventListener('mouseout', function () {
+        div.innerHTML = "Mouse Over Me"
+    });
+
+    div.addEventListener('mousedown', function () {
+        div.style.backgroundColor = "#1ec5e5";
+        div.innerHTML = "Release Me";
+    });
+
+    div.addEventListener('mouseup', function () {
+        div.style.backgroundColor = "#D94A38";
+        div.innerHTML = "Thank You";
+    });
+</script>
+
+</body>
+</html> 

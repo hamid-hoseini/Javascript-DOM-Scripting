@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="intro">My First Page</h1>
+
+<p id="demo">Hello World!</p>
+<p id="demo1">Hello World!</p>
+<p id="demo2">Hello World!</p>
+<p id="demo3">Hello World!</p>
+
+
+<script>
+    var myText = document.getElementById("intro").childNodes[0].nodeValue;
+    document.getElementById("demo").innerHTML = myText;
+
+    myText = document.getElementById("intro").firstChild.nodeValue;
+    document.getElementById("demo1").innerHTML = myText;
+
+    document.getElementById("demo2").innerHTML = document.body.innerHTML;
+
+    document.getElementById("demo3").innerHTML = document.documentElement.innerHTML;
+</script>
+
+</body>
+</html>

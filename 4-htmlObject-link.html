@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>
+    <a href="/html/default.asp">HTML</a>
+    <br>
+    <a href="/css/default.asp">CSS</a>
+</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+
+<script>
+    document.getElementById("demo").innerHTML =
+            "Number of links: " + document.links.length;
+
+    document.getElementById("demo1").innerHTML =
+            "Number of links: " + document.links[1].href;
+
+</script>
+
+</body>
+</html>
