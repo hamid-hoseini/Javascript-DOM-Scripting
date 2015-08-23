@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 33.33333333333333%;
+            height: 33.3333333vh;
+            float: left;
+            transition: background-color 500ms ease-out;
+        }
+        div:nth-child(4n + 1) {
+            background-color: #468966;
+        }
+        div:nth-child(4n + 2) {
+            background-color: #FFF0A5;
+        }
+        div:nth-child(4n + 3) {
+            background-color: #FFB03B;
+        }
+        div:nth-child(4n + 4) {
+            background-color: #B64926;
+        }
+
+        div.previous {
+            background-color: black;
+            transition: background-color 250ms ease-out;
+        }
+        div.current {
+            background-color: white;
+            transition: background-color 250ms ease-out;
+        }
+
+    </style>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // mouseenter handler for all the divs
+            function handler(event) {
+                // remove all previous and current classes
+                var prev = document.querySelector('.previous');
+                var current = document.querySelector('.current');
+                if (prev) { prev.className = prev.className.replace(/\s?previous/gmi, ''); }
+                if (current) { current.className = current.className.replace(/\s?current/gmi, ''); }
+
+                event.currentTarget.className += ' current';
+                if (event.relatedTarget) event.relatedTarget.className += ' previous';
+                console.log('You are currently at ', event.currentTarget, ' and you came in from ', event.relatedTarget);
+            }
+
+            var divs = Array.prototype.slice.call(document.querySelectorAll('div'));
+
+            divs.forEach(function (div, index) {
+                div.id = index + 1;
+                div.addEventListener('mouseenter', handler);
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+<div class="mydiv myclass"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

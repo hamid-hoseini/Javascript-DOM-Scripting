@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text"/>
+
+<form action="/test" method="get" name="login">
+    <input type="text" name="username"/>
+    <input type="password" name="password"/>
+    <input type="submit"/>
+</form>
+<script>
+    var inp = document.querySelector('input');
+    inp.addEventListener('keydown', function (e) {
+        console.log(e.key);
+        console.log(e.keyCode);
+        console.log(String.fromCharCode(e.keyCode));
+        // the following code tested with Firefox 35 and above
+        // does not work with chrome
+        if (/[0-9]/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+    document.forms.login.addEventListener('submit', function (e) {
+        e.preventDefault();
+        console.log({
+            username: this.username.value,
+            password: this.password.value
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Event Phases</title>
+    <style>
+        div {
+            padding: 1em;
+            background-color: rgba(255, 0, 0, 0.44);
+            border: 1px solid darkred;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <div id="div2">
+        <div id="div3">
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var div1 = document.body.firstElementChild;
+    var div2 = div1.firstElementChild;
+    var div3 = div2.firstElementChild;
+
+
+    div2.addEventListener('click', handler, false);
+    div3.addEventListener('click', handler, false);
+    div1.addEventListener('click', handler, true);
+
+
+
+    function handler(e) {
+        // console.log(this.id);
+        // console.log('The event happened on .. ', e.target);
+        console.log('Event was fired on ... ', e.currentTarget, ' and the eventPhase is ', e.eventPhase);
+        e.stopPropagation();
+    }
+
+
+</script>
+</body>
+</html>

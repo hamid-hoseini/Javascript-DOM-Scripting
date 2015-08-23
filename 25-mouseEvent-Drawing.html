@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        div {
+            background-color: rgba(255, 0, 0, 0.35);
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var script = document.querySelector('script');
+    var initpos = { x:0, y:0 };
+    var div;
+    function mousemovehandler(e) {
+        div.style.height = e.clientY - initpos.y + 'px';
+        div.style.width = e.clientX - initpos.x + 'px';
+    }
+    document.addEventListener('mousedown', function (e) {
+        div = document.createElement('div');
+        initpos = {
+            x: e.clientX,
+            y: e.clientY
+        };
+        div.style.top = e.clientY + 'px';
+        div.style.left = e.clientX + 'px';
+        document.body.insertBefore(div, script);
+        document.addEventListener('mousemove', mousemovehandler);
+    });
+    document.addEventListener('mouseup', function () {
+        document.removeEventListener('mousemove', mousemovehandler);
+    });
+</script>
+</body>
+</html>

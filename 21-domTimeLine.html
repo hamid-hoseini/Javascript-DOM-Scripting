@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM TimeLine</title>
+    <script>
+        var start = new Date();
+        var end;
+        document.addEventListener('readystatechange', function () {
+            switch (document.readyState) {
+                case 'interactive': printTimeTaken('interactive', new Date());
+                    break;
+                case 'complete': printTimeTaken('complete', new Date());
+                    break;
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            printTimeTaken('DOMContentLoaded', new Date());
+        });
+        window.addEventListener('load', function () {
+            printTimeTaken('window\'s load event ... ', new Date());
+        });
+        function printTimeTaken(event, end) {
+            console.log('Time taken for: ' + event + ' was ' + (end - start) + 'ms');
+        }
+    </script>
+</head>
+<body>
+<img src="http://upload.wikimedia.org/wikipedia/commons/1/1a/Bachalpseeflowers.jpg" alt=""/>
+</body>
+</html>
